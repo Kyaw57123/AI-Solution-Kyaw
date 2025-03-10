@@ -6,72 +6,84 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>Tables - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Include Firebase Modular SDK -->
         <script type="module">
             import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
-            import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
-        
+import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+
             // Your Firebase configuration
             const firebaseConfig = {
-            apiKey: "AIzaSyD64oPEDpzdrv3c64Yy2sxtRRDAdq6-0vY",
-            authDomain: "aisolution-dfe38.firebaseapp.com",
-            projectId: "aisolution-dfe38",
-            storageBucket: "aisolution-dfe38.firebasestorage.app",
-            messagingSenderId: "971485624298",
-            appId: "1:971485624298:web:0ee76b576d1ac2a3b4e493",
-            measurementId: "G-NJJFG1BNJN"
+                apiKey: "AIzaSyD64oPEDpzdrv3c64Yy2sxtRRDAdq6-0vY",
+                authDomain: "aisolution-dfe38.firebaseapp.com",
+                projectId: "aisolution-dfe38",
+                storageBucket: "aisolution-dfe38.firebasestorage.app",
+                messagingSenderId: "971485624298",
+                appId: "1:971485624298:web:0ee76b576d1ac2a3b4e493",
+                measurementId: "G-NJJFG1BNJN"
             };
-        
+
             // Initialize Firebase
             const app = initializeApp(firebaseConfig);
             const db = getFirestore(app);
-        
-            // Fetch data from Firestore and populate the table
+
             async function loadData() {
-            const querySnapshot = await getDocs(collection(db, "contacts"));
             const tableBody = document.querySelector("#datatablesSimple tbody");
-        
-            // Clear existing rows
-            tableBody.innerHTML = '';
-        
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                const row = document.createElement("tr");
-        
-                // Populate the row with data from Firestore
-                row.innerHTML = `
-                <td>${data.name}</td>
-                <td>${data.email}</td>
-                <td>${data.phone}</td>
-                <td>${data.company}</td>
-                <td>${data.country}</td>
-                <td>${data.jobTitle}</td>
-                <td>${data.jobDetails}</td>
-                `;
-        
-                // Append the new row to the table body
-                tableBody.appendChild(row);
-            });
+            tableBody.innerHTML = ""; // Clear table before loading new data
+
+            try {
+                const querySnapshot = await getDocs(collection(db, "feedbacks"));
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    
+                    // Convert Firestore timestamp to readable format
+                    const timestamp = data.timestamp?.toDate 
+                        ? data.timestamp.toDate() 
+                        : new Date(data.timestamp); // Handle cases where it's a normal date
+                    
+                    const formattedDate = timestamp.toLocaleString('en-US', {
+                        month: '2-digit', 
+                        day: '2-digit', 
+                        year: 'numeric', 
+                        hour: '2-digit', 
+                        minute: '2-digit', 
+                        second: '2-digit', 
+                        hour12: true
+                    });
+
+                    const row = `
+                        <tr>
+                            <td>${data.email}</td>
+                            <td>${data.feedback}</td>
+                            <td>${data.name}</td>
+                            <td>${data.rating} ⭐</td>
+                            <td>${formattedDate}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+
+                // Reinitialize DataTable after loading data
+                new simpleDatatables.DataTable("#datatablesSimple");
+
+            } catch (error) {
+                console.error("Error fetching feedbacks: ", error);
             }
-        
+        }
+
             // Load data when the page is ready
             document.addEventListener("DOMContentLoaded", () => {
-            loadData();
+                loadData();
             });
+
         </script>
-  
     </head>
     <body class="sb-nav-fixed">
-        
-        <!-- this is side Navbar Brand-->
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">AI Solution</a>
-        
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -81,8 +93,7 @@
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
-            
-            <!-- this is top Navbar Brand-->
+            <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
@@ -90,13 +101,11 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
-        
-        <!-- this is bottom part of the Navbar Brand-->
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -168,101 +177,39 @@
                     
                 </nav>
             </div>
-
-            <!-- this dashboard start here -->
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
+                        <h1 class="mt-4">Feedbacks</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Tables</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                                .
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Customer Inquiries
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Inquiries Per Month
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
-
-                            <!-- the table start -->
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Contact Table
+                                DataTable Example
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Email Address</th>
-                                            <th>Phone Number</th>
-                                            <th>Company Name</th>
-                                            <th>Country</th>
-                                            <th>Job Title</th>
-                                            <th>Job Details</th>
+                                            <th>email</th>
+                                            <th>feedback</th>
+                                            <th>name</th>
+                                            <th>rating</th>
+                                            <th>Posted Date</th>
+                                            
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email Address</th>
-                                            <th>Phone Number</th>
-                                            <th>Company Name</th>
-                                            <th>Country</th>
-                                            <th>Job Title</th>
-                                            <th>Job Details</th>
-                                        </tr>
-                                    </tfoot>
+                                    
                                     <tbody>
                                         <tr>
                                             <td>Loading</td>
@@ -270,8 +217,7 @@
                                             <td>Loading</td>
                                             <td>Loading</td>
                                             <td>Loading</td>
-                                            <td>Loading</td>
-                                            <td>Loading</td>
+                                            
                                         </tr>
                                     </tbody>
                                 </table>
@@ -282,7 +228,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            
+                        
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -295,9 +241,6 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
