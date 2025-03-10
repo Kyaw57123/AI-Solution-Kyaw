@@ -10,6 +10,60 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Include Firebase Modular SDK -->
+        <script type="module">
+            import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+            import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+        
+            // Your Firebase configuration
+            const firebaseConfig = {
+            apiKey: "AIzaSyD64oPEDpzdrv3c64Yy2sxtRRDAdq6-0vY",
+            authDomain: "aisolution-dfe38.firebaseapp.com",
+            projectId: "aisolution-dfe38",
+            storageBucket: "aisolution-dfe38.firebasestorage.app",
+            messagingSenderId: "971485624298",
+            appId: "1:971485624298:web:0ee76b576d1ac2a3b4e493",
+            measurementId: "G-NJJFG1BNJN"
+            };
+        
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+        
+            // Fetch data from Firestore and populate the table
+            async function loadData() {
+            const querySnapshot = await getDocs(collection(db, "contacts"));
+            const tableBody = document.querySelector("#datatablesSimple tbody");
+        
+            // Clear existing rows
+            tableBody.innerHTML = '';
+        
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const row = document.createElement("tr");
+        
+                // Populate the row with data from Firestore
+                row.innerHTML = `
+                <td>${data.name}</td>
+                <td>${data.email}</td>
+                <td>${data.phone}</td>
+                <td>${data.company}</td>
+                <td>${data.country}</td>
+                <td>${data.jobTitle}</td>
+                <td>${data.jobDetails}</td>
+                `;
+        
+                // Append the new row to the table body
+                tableBody.appendChild(row);
+            });
+            }
+        
+            // Load data when the page is ready
+            document.addEventListener("DOMContentLoaded", () => {
+            loadData();
+            });
+        </script>
+  
     </head>
     <body class="sb-nav-fixed">
         
@@ -117,7 +171,6 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
-                        
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
@@ -177,7 +230,7 @@
                             </div>
                         </div>
 
-                        <!-- the table start -->
+                            <!-- the table start -->
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -209,229 +262,13 @@
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>John Doe</td>
-                                            <td>johndoe@example.com</td>
-                                            <td>+1234567890</td>
-                                            <td>Doe Enterprises</td>
-                                            <td>United States</td>
-                                            <td>Software Engineer</td>
-                                            <td>Developing AI solutions for customer engagement.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jane Smith</td>
-                                            <td>janesmith@example.com</td>
-                                            <td>+9876543210</td>
-                                            <td>Smith Innovations</td>
-                                            <td>United Kingdom</td>
-                                            <td>Data Scientist</td>
-                                            <td>Analyzing big data to improve business strategies.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Emily Davis</td>
-                                            <td>emilydavis@example.com</td>
-                                            <td>+2233445566</td>
-                                            <td>Davis Tech</td>
-                                            <td>Australia</td>
-                                            <td>Cybersecurity Analyst</td>
-                                            <td>Developing security protocols for enterprise networks.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Chris Johnson</td>
-                                            <td>chrisjohnson@example.com</td>
-                                            <td>+3344556677</td>
-                                            <td>Johnson Solutions</td>
-                                            <td>Germany</td>
-                                            <td>Software Architect</td>
-                                            <td>Designing scalable cloud-based applications.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sarah Lee</td>
-                                            <td>sarahlee@example.com</td>
-                                            <td>+4455667788</td>
-                                            <td>Lee Innovations</td>
-                                            <td>South Korea</td>
-                                            <td>AI Researcher</td>
-                                            <td>Exploring deep learning techniques for automation.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>David Wilson</td>
-                                            <td>davidwilson@example.com</td>
-                                            <td>+5566778899</td>
-                                            <td>Wilson Enterprises</td>
-                                            <td>United States</td>
-                                            <td>Blockchain Developer</td>
-                                            <td>Implementing decentralized ledger solutions.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Martinez</td>
-                                            <td>oliviamartinez@example.com</td>
-                                            <td>+6677889900</td>
-                                            <td>Martinez Consulting</td>
-                                            <td>Spain</td>
-                                            <td>UX Designer</td>
-                                            <td>Improving user experience through design thinking.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Daniel Thompson</td>
-                                            <td>danielthompson@example.com</td>
-                                            <td>+7788990011</td>
-                                            <td>Thompson Systems</td>
-                                            <td>France</td>
-                                            <td>Cloud Engineer</td>
-                                            <td>Optimizing cloud infrastructures for businesses.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jessica White</td>
-                                            <td>jessicawhite@example.com</td>
-                                            <td>+8899001122</td>
-                                            <td>White AI</td>
-                                            <td>Japan</td>
-                                            <td>AI Product Manager</td>
-                                            <td>Leading AI-driven software product development.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>William Harris</td>
-                                            <td>williamharris@example.com</td>
-                                            <td>+9900112233</td>
-                                            <td>Harris Digital</td>
-                                            <td>Italy</td>
-                                            <td>DevOps Engineer</td>
-                                            <td>Automating infrastructure deployment for enterprises.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jane Smith</td>
-                                            <td>janesmith@example.com</td>
-                                            <td>+9876543210</td>
-                                            <td>Smith Innovations</td>
-                                            <td>United Kingdom</td>
-                                            <td>Data Scientist</td>
-                                            <td>Analyzing big data to improve business strategies.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Brown</td>
-                                            <td>michaelbrown@example.com</td>
-                                            <td>+1122334455</td>
-                                            <td>Brown Analytics</td>
-                                            <td>Canada</td>
-                                            <td>Machine Learning Engineer</td>
-                                            <td>Building predictive models for financial markets.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Emily Davis</td>
-                                            <td>emilydavis@example.com</td>
-                                            <td>+2233445566</td>
-                                            <td>Davis Tech</td>
-                                            <td>Australia</td>
-                                            <td>Cybersecurity Analyst</td>
-                                            <td>Developing security protocols for enterprise networks.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Chris Johnson</td>
-                                            <td>chrisjohnson@example.com</td>
-                                            <td>+3344556677</td>
-                                            <td>Johnson Solutions</td>
-                                            <td>Germany</td>
-                                            <td>Software Architect</td>
-                                            <td>Designing scalable cloud-based applications.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sarah Lee</td>
-                                            <td>sarahlee@example.com</td>
-                                            <td>+4455667788</td>
-                                            <td>Lee Innovations</td>
-                                            <td>South Korea</td>
-                                            <td>AI Researcher</td>
-                                            <td>Exploring deep learning techniques for automation.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>David Wilson</td>
-                                            <td>davidwilson@example.com</td>
-                                            <td>+5566778899</td>
-                                            <td>Wilson Enterprises</td>
-                                            <td>United States</td>
-                                            <td>Blockchain Developer</td>
-                                            <td>Implementing decentralized ledger solutions.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Martinez</td>
-                                            <td>oliviamartinez@example.com</td>
-                                            <td>+6677889900</td>
-                                            <td>Martinez Consulting</td>
-                                            <td>Spain</td>
-                                            <td>UX Designer</td>
-                                            <td>Improving user experience through design thinking.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Daniel Thompson</td>
-                                            <td>danielthompson@example.com</td>
-                                            <td>+7788990011</td>
-                                            <td>Thompson Systems</td>
-                                            <td>France</td>
-                                            <td>Cloud Engineer</td>
-                                            <td>Optimizing cloud infrastructures for businesses.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jessica White</td>
-                                            <td>jessicawhite@example.com</td>
-                                            <td>+8899001122</td>
-                                            <td>White AI</td>
-                                            <td>Japan</td>
-                                            <td>AI Product Manager</td>
-                                            <td>Leading AI-driven software product development.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>William Harris</td>
-                                            <td>williamharris@example.com</td>
-                                            <td>+9900112233</td>
-                                            <td>Harris Digital</td>
-                                            <td>Italy</td>
-                                            <td>DevOps Engineer</td>
-                                            <td>Automating infrastructure deployment for enterprises.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Amelia Clark</td>
-                                            <td>ameliac@example.com</td>
-                                            <td>+9911223344</td>
-                                            <td>Clark Innovations</td>
-                                            <td>Brazil</td>
-                                            <td>Data Engineer</td>
-                                            <td>Creating robust ETL pipelines for large datasets.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lucas Wright</td>
-                                            <td>lucaswright@example.com</td>
-                                            <td>+9922334455</td>
-                                            <td>Wright Tech</td>
-                                            <td>Netherlands</td>
-                                            <td>Full Stack Developer</td>
-                                            <td>Developing end-to-end solutions for e-commerce.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sophia Walker</td>
-                                            <td>sophiawalker@example.com</td>
-                                            <td>+9933445566</td>
-                                            <td>Walker AI</td>
-                                            <td>India</td>
-                                            <td>AI Ethics Researcher</td>
-                                            <td>Studying the impact of AI on society.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Henry Adams</td>
-                                            <td>henryadams@example.com</td>
-                                            <td>+9944556677</td>
-                                            <td>Adams Security</td>
-                                            <td>Singapore</td>
-                                            <td>Penetration Tester</td>
-                                            <td>Conducting ethical hacking to identify vulnerabilities.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Isabella Lewis</td>
-                                            <td>isabellalewis@example.com</td>
-                                            <td>+9955667788</td>
-                                            <td>Lewis Enterprises</td>
-                                            <td>Mexico</td>
-                                            <td>IoT Engineer</td>
-                                            <td>Building smart home automation systems.</td>
+                                            <td>Loading</td>
+                                            <td>Loading</td>
+                                            <td>Loading</td>
+                                            <td>Loading</td>
+                                            <td>Loading</td>
+                                            <td>Loading</td>
+                                            <td>Loading</td>
                                         </tr>
                                     </tbody>
                                 </table>

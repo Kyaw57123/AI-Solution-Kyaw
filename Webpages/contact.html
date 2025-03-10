@@ -3,48 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us </title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="contact.css">
 
+    <!-- Firebase Modular SDK -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+      import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD64oPEDpzdrv3c64Yy2sxtRRDAdq6-0vY",
+        authDomain: "aisolution-dfe38.firebaseapp.com",
+        projectId: "aisolution-dfe38",
+        storageBucket: "aisolution-dfe38.firebasestorage.app",
+        messagingSenderId: "971485624298",
+        appId: "1:971485624298:web:0ee76b576d1ac2a3b4e493",
+        measurementId: "G-NJJFG1BNJN"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Wait for the document to be fully loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        const contactForm = document.getElementById("contactForm");
+
+        // Handle form submission
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get the form values
+          const name = contactForm.querySelector('input[type="text"][placeholder="Enter your name"]').value;
+          const email = contactForm.querySelector('input[type="email"][placeholder="Enter your email"]').value;
+          const phone = contactForm.querySelector('input[type="text"][placeholder="Enter your phone number"]').value;
+          const company = contactForm.querySelector('input[type="text"][placeholder="Enter your company name"]').value;
+          const country = contactForm.querySelector('select').value;
+          const jobTitle = contactForm.querySelector('input[type="text"][placeholder="Enter your job title"]').value;
+          const jobDetails = contactForm.querySelector('textarea').value;
+
+          // Clear any previous error message
+          const errorMessageDiv = document.getElementById("error-message");
+          errorMessageDiv.textContent = "";
+
+          // Save the data to Firestore
+          addDoc(collection(db, "contacts"), {
+            name: name,
+            email: email,
+            phone: phone,
+            company: company,
+            country: country,
+            jobTitle: jobTitle,
+            jobDetails: jobDetails,
+            timestamp: serverTimestamp()
+          })
+          .then(() => {
+            // Hide the error message container and display success
+            errorMessageDiv.classList.add("d-none");  // Hide the error message
+            alert("Your contact information has been submitted successfully!");
+            contactForm.reset();  // Reset the form after submission
+          })
+          .catch((error) => {
+            // Handle errors and display in the error message container
+            errorMessageDiv.classList.remove("d-none");  // Show the error message
+            const errorMessage = "Error submitting the form: " + error.message;
+            errorMessageDiv.textContent = errorMessage;
+          });
+        });
+
+        // Reset form function
+        window.resetForm = function() {
+          contactForm.reset();
+          const errorMessageDiv = document.getElementById("error-message");
+          errorMessageDiv.textContent = "";  // Clear error message
+          errorMessageDiv.classList.add("d-none");  // Hide error message container
+        }
+      });
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="contact.js"></script>
-
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="contact-form">
             <h2 class="text-center mb-4">Contact Us</h2>
+
+            <!-- Error message container -->
+            <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
+
             <form id="contactForm">
                 <!-- Name -->
                 <div class="mb-3">
-                    
                     <input type="text" class="form-control" placeholder="Enter your name" required>
                 </div>
     
                 <!-- Email -->
                 <div class="mb-3">
-                  
                     <input type="email" class="form-control" placeholder="Enter your email" required>
                 </div>
     
                 <!-- Phone -->
                 <div class="mb-3">
-                    
                     <input type="text" class="form-control" placeholder="Enter your phone number" required>
                 </div>
     
                 <!-- Company Name -->
                 <div class="mb-3">
-                    
                     <input type="text" class="form-control" placeholder="Enter your company name">
                 </div>
     
                 <!-- Country Dropdown -->
                 <div class="mb-3">
-                   
                     <select class="form-select" required>
                         <option value="" disabled selected>Select your country</option>
                         <option value="USA">United States</option>
@@ -59,7 +132,6 @@
     
                 <!-- Job Title -->
                 <div class="mb-3">
-                    
                     <input type="text" class="form-control" placeholder="Enter your job title" required>
                 </div>
     
@@ -77,6 +149,5 @@
             </form>
         </div>
     </div>
-    
 </body>
 </html>
