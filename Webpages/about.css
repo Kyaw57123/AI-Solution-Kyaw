@@ -1,0 +1,290 @@
+body {
+    background: url('main back.avif') no-repeat center center/cover;
+}
+
+
+/*this is for navigation*/
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #284c72 !important; /* Change this to match your design */
+}
+
+
+.brand-logo {
+   
+    padding: 3px;
+    border-radius: 50px;
+    max-width: 40px;
+    height: auto;
+}
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    
+}
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: 0.3s ease-in-out;
+}
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+}
+.search-icon {
+    font-size: 1rem;
+    cursor: pointer;
+}
+.search-form {
+    margin-left: 10px;
+}
+
+
+
+/*this is for hero section*/
+.welcome-section {
+    background: #162c26b2; 
+    color: #fff;
+    display: flex;
+    align-items: center;
+    min-height: 300px;
+}
+
+.welcome-box {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.welcome-box h2 {
+    font-size: 2rem;
+}
+
+.welcome-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Styling for Employee & Office Count */
+.info-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligns the boxes to the right */
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    width: 200px;
+}
+.ital{
+    font-style: italic;
+}
+
+
+
+/*this is for employees*/
+.hfh {
+    color: #bbb;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Start invisible */
+    transform: translateY(-50px); /* Move up initially */
+    animation: slideDown 1s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Employee Card Styling */
+.employee-card {
+    position: relative;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Employee Image in the Top Right Corner */
+.employee-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fff;
+}
+
+.employee-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Employee Story Styling */
+.employee-story {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+
+
+
+/*our program Section*/
+.program-card {
+    background: #ffffff94;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Program Image Styling */
+.program-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/*this is for our team parnership*/
+.hc{
+    color: #bbb;
+}
+
+.partner-logo {
+    width: 120px; 
+    height: 120px; 
+    object-fit: contain; 
+    display: block; 
+    margin: auto; 
+}
+
+/* Ensures all partner cards are the same size */
+.partner-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    height: 150px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect */
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Initial state before animation */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateX(100px); /* Start off-screen */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+/* Class to trigger animation */
+.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+
+/*this is for the fotter*/
+.footer-section {
+    background: black;
+    color: white;
+    padding: 20px 0; /* Reduce padding to make the footer smaller */
+    font-size: 14px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.social-icons {
+    margin-top: 5px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 8px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0d6efd;
+}
+
+.footer-bottom {
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 5px;
+    margin-top: 10px;
+}
+
+
+

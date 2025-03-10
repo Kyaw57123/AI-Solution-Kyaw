@@ -1,0 +1,68 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-weight: 600;
+    color: #333;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Rating Styling */
+.rating {
+    display: flex;
+    gap: 8px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.rating i {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.rating i.active {
+    color: red;
+}
+
+/*this is for submissions */
+.form-control {
+    margin-bottom: 15px;
+}
+.btn-custom {
+    background-color: #17a2b8;
+    color: white;
+    border-radius: 15px;
+}
+.btn-custom:hover {
+    background-color: #138496;
+    border-radius: 10px;
+    
+}
+
+/*this is for cancel */
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 15px;
+}
+.btn-cancel:hover {
+    background-color: #c82333;
+    border-radius: 10px;
+}
+.d-flex {
+    gap: 30px; /* Reduce space between buttons */
+}

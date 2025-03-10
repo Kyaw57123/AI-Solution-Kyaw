@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="about.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
+        <div class="container-fluid">
+
+            <div class="navbar-brand d-flex align-items-center">
+                <img src="AI logo.png" alt="Solution" class="brand-logo">
+                <span class="ms-2 text-white">Solution</span>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav nav-justified ">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="software.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="industrial.html">Industrial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+                </ul>
+            </div>
+
+            <div class="d-flex align-items-center search-container">
+                <button class="btn btn-outline-light search-icon" id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <form class="d-flex search-form" id="searchForm" style="display: none;">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        
+                </form>
+            </div>  
+        </div>
+    </nav>
+
+
+    <!-- hero section -->
+    <header class="bg-primary text-white text-center py-5">
+        <section class="welcome-section py-5">
+            <div class="container d-flex justify-content-between align-items-center ">
+                <div class="text-center welcome-box p-4 floating">
+                    <h1 class="fw-bold">About Us</h1>
+                    <p class="ital mt-3">Founded in 1997, AI-Solution has grown from a small team of 
+                        innovators to a global network of AI experts. With diverse talent and offices worldwide, we specialize in AI-powered virtual 
+                        assistants and prototyping solutions, driving innovation and automation for businesses everywhere.</p>
+                </div>
+                <!-- New Divs for Employee & Office Count -->
+                <div class="d-flex gap-4 mt-4 justify-content-end info-container">
+                    <div class="info-box p-3 text-center">
+                        <p class="ital">Employees</p>
+                        <h2 class="fw-bold">500+</h2>
+                        
+                    </div>
+                    <div class="info-box p-3 text-center">
+                        <p class="ital">Global Offices</p>
+                        <h2 class="fw-bold">10+</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    
+    <!-- employee section -->
+    <section id="employees" class="container py-5">
+        <h2 class="hfh text-center">Our Employees</h2>
+        <p class="hfh text-center">We have a team of skilled professional employees.</p>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card p-3 employee-card">
+                    <div class="employee-image">
+                        <img src="jd.webp" alt="John Doe">
+                    </div>
+                    <h4>John Doe</h4>
+                    <p><em>Software Engineer</em></p>
+                    <p class="employee-story">John is a dedicated software engineer with over 8 years of experience in AI-driven applications. His expertise in backend development and cloud computing has helped streamline complex systems for our clients.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 employee-card">
+                    <div class="employee-image">
+                        <img src="js.jpg" alt="Jane Smith">
+                    </div>
+                    <h4>Jane Smith</h4>
+                    <p><em>AI Researcher</em></p>
+                    <p class="employee-story">Jane is a passionate AI researcher who specializes in deep learning and neural networks. She has contributed to several groundbreaking projects in natural language processing and AI ethics.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 employee-card">
+                    <div class="employee-image">
+                        <img src="rb.jpg" alt="Robert Brown">
+                    </div>
+                    <h4>Robert Brown</h4>
+                    <p><em>UI/UX Designer</em></p>
+                    <p class="employee-story">Robert is a creative UI/UX designer with a keen eye for aesthetics and usability. He ensures that every product we develop is both visually appealing and highly intuitive for users.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- our program Section -->
+    <section id="program" class="py-5">
+        <div class="container text-center">
+            <h2>Our Program</h2>
+            
+            <div class="row mt-4">
+                <!-- First Junior Training -->
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <img src="training2.jpg" alt="Junior Training" class="program-image" 
+                            onmouseover="swapImage(this, 'job training.jpeg')" 
+                            onmouseout="swapImage(this, 'training2.jpg')">
+                        <div class="card-body">
+                            <h4>First Junior Training</h4>
+                            <p>We offer hands-on training programs for young talent, equipping them with the skills needed to succeed in AI and technology.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Helping Poor People in Asia -->
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <img src="healp people.gif" alt="Helping Poor" class="program-image"
+                            onmouseover="swapImage(this, 'healp people2.jpg')" 
+                            onmouseout="swapImage(this, 'healp people.gif')">
+                        <div class="card-body">
+                            <h4>Helping Poor People in Asia</h4>
+                            <p>We are committed to supporting underprivileged communities in Asia through education, food programs, and job training.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Looking After Our Environment -->
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <img src="healp env1.jpg" alt="Environment Care" class="program-image"
+                            onmouseover="swapImage(this, 'healp env2.jpg')" 
+                            onmouseout="swapImage(this, 'healp env1.jpg')">
+                        <div class="card-body">
+                            <h4>Looking After Our Environment</h4>
+                            <p>We take environmental responsibility seriously, engaging in tree planting, recycling, and sustainable technology initiatives.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- our team parnership -->
+    <section id="teamwork" class="container py-5">
+        <h2 class="hc text-center">Collaboration Companies</h2>
+    
+        <!-- Logos Section -->
+        <div class="row justify-content-center align-items-center text-center mt-4">
+            <!-- AI-Solution Logo -->
+            <div class="col-md-3">
+                <div class="partner-card animate-on-scroll" id="partner1" onclick="showPartnerInfo('AI-Solution', 'Innovating AI solutions for businesses.')">
+                    <div class="navbar-brand d-flex align-items-center">
+                        <img src="AI logo.png" alt="Solution" class="brand-logo">
+                        <span class="ms-2 text-white">Solution</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Partner Company Logos -->
+            <div class="col-md-3">
+                <div class="partner-card animate-on-scroll" id="partner2" onclick="showPartnerInfo('Tech Innovations', 'Leading technology research and development.')">
+                    <img src="parter1.jpg" alt="Partner 1" class="partner-logo">
+                </div>
+            </div>
+    
+            <div class="col-md-3">
+                <div class="partner-card animate-on-scroll" id="partner3" onclick="showPartnerInfo('Future AI Labs', 'Pioneering AI and machine learning projects.')">
+                    <img src="parter2.jpg" alt="Partner 2" class="partner-logo">
+                </div>
+            </div>
+    
+            <div class="col-md-3">
+                <div class="partner-card animate-on-scroll" id="partner4" onclick="showPartnerInfo('Smart Robotics', 'Developing next-gen robotics and automation.')">
+                    <img src="partner4.png" alt="Partner 3" class="partner-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Side: Company Info -->
+                <div class="col-md-6 text-md-start text-center">
+                    <h4 class="footer-title">AI-Solution</h4>
+                    <p>Innovating with AI to create intelligent solutions for your business.</p>
+                </div>
+    
+                <!-- Right Side: Contact Info & Social Links -->
+                <div class="col-md-6 text-md-end text-center">
+                    <p><strong>Email:</strong> support@ai-solution.com</p>
+                    <p><strong>Phone:</strong> +123 456 7890</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Copyright -->
+            <div class="footer-bottom text-center mt-3">
+                <p>© 2025 AI-Solution. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+   
+
+</body>
+</html>

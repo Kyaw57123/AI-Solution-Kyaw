@@ -1,0 +1,42 @@
+body {
+    background: url('contact back.avif');
+    background-size: cover;
+}
+.contact-form {
+    max-width: 700px; /* Increased width */
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensures full width within limits */
+    
+}
+
+/*this is for submissions */
+.form-control {
+    margin-bottom: 15px;
+}
+.btn-custom {
+    background-color: #17a2b8;
+    color: white;
+    border-radius: 15px;
+}
+.btn-custom:hover {
+    background-color: #138496;
+    border-radius: 10px;
+    
+}
+
+/*this is for cancel */
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 15px;
+}
+.btn-cancel:hover {
+    background-color: #c82333;
+    border-radius: 10px;
+}
+.d-flex {
+    gap: 30px; /* Reduce space between buttons */
+}

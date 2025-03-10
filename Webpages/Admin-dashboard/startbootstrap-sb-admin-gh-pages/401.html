@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Admin - Edit Blogs</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            /* Custom border styling */
+            .border-box {
+                border: 2px solid #ddd; /* Light gray border */
+                border-radius: 8px; /* Rounded corners */
+                padding: 20px; /* Padding for spacing */
+                background-color: #f9f9f9; /* Light background */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center m-5">Manage Blogs</h1>
+            <div class="row">
+                <div class="col-md-6 border-box">
+                    <h3>Add/Edit Blog</h3>
+                    <form id="blogForm">
+                        <div class="mb-3">
+                            <label for="blogTitle" class="form-label">Blog Title</label>
+                            <input type="text" class="form-control" id="blogTitle" placeholder="Enter blog title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="blogImage" class="form-label">Blog Image</label>
+                            <input type="file" class="form-control" id="blogImage" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" id="deleteAllBlogs" class="btn btn-danger">Cancle</button>
+                    </form>
+                </div>
+                <div class="col-md-6 border-box">
+                    <h3>Previous Blogs</h3>
+                    <div id="blogList" class="list-group">
+                        <!-- Blog items will be appended here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            document.getElementById('blogForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                let title = document.getElementById('blogTitle').value;
+                let imageInput = document.getElementById('blogImage');
+                let imageFile = imageInput.files[0];
+                
+                if (title && imageFile) {
+                    let reader = new FileReader();
+                    reader.onload = function(e) {
+                        let blogItem = document.createElement('div');
+                        blogItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'p-3');
+                        blogItem.innerHTML = `
+                            <div>
+                                <h5>${title}</h5>
+                                <img src="${e.target.result}" class="img-fluid" alt="Blog Image" style="max-width: 100px; max-height: 100px;">
+                            </div>
+                        `;
+
+                        // Append the new blog entry
+                        document.getElementById('blogList').appendChild(blogItem);
+                    };
+                    reader.readAsDataURL(imageFile);
+                    
+                    // Reset form fields
+                    document.getElementById('blogForm').reset();
+                }
+            });
+
+            // Delete all blogs functionality
+            document.getElementById('deleteAllBlogs').addEventListener('click', function() {
+                document.getElementById('blogList').innerHTML = '';
+            });
+        </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

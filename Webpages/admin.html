@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js"></script>
+
+
+</head>
+<body>
+    <!-- this is for navbar  -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#inquiries">Contact list</a>
+        <a href="#users">Users</a>
+        <a href="#settings">Blogs/Gallery</a>
+        <a href="#logout">Logout</a>
+    </div>
+    
+     <!-- this is top three section   -->
+    <div class="content">
+        <div class="dash-ha m-2">
+            <h1>Dashboard Overview</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>New Contacts</h5>
+                    <p id="contacts-count">0</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>New Feedback</h5>
+                    <p id="feedback-count">0</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>Total Employees (Old & New)</h5>
+                    <p id="employees-count">0</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Recent Events</h2>
+        <ul class="list-group">
+            <li class="list-group-item">New user registered: John Doe</li>
+            <li class="list-group-item">New contact form submitted</li>
+            <li class="list-group-item">Feedback received from a client</li>
+        </ul>
+
+        <h2 class="mt-5">Latest Blog Posts</h2>
+        <ul class="list-group">
+            <li class="list-group-item">"How AI is Transforming Businesses"</li>
+            <li class="list-group-item">"The Future of Virtual Assistants"</li>
+            <li class="list-group-item">"Why Prototyping Matters in Software Development"</li>
+        </ul>
+
+        <h2 class="mt-5">System Reports</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Monthly User Growth: +12%</li>
+            <li class="list-group-item">System Uptime: 99.9%</li>
+            <li class="list-group-item">Total Transactions: 1,234</li>
+        </ul>
+
+        <h2 class="mt-5">Notifications</h2>
+        <ul class="list-group">
+            <li class="list-group-item">New system update available</li>
+            <li class="list-group-item">Security alert: Unusual login attempt detected</li>
+            <li class="list-group-item">Reminder: Backup your data</li>
+        </ul>
+    </div>
+
+    <!--   -->
+    
+   
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
