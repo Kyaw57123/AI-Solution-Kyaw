@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+
+  <!-- Link to external admin view JavaScript file -->
+  <script type="module" >
+    // Import Firebase App and Firebase Authentication SDK
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+
+// Firebase config
+const firebaseConfig = {
+    apiKey: "AIzaSyD64oPEDpzdrv3c64Yy2sxtRRDAdq6-0vY",
+    authDomain: "aisolution-dfe38.firebaseapp.com",
+    projectId: "aisolution-dfe38",
+    storageBucket: "aisolution-dfe38.firebasestorage.app",
+    messagingSenderId: "971485624298",
+    appId: "1:971485624298:web:0ee76b576d1ac2a3b4e493",
+    measurementId: "G-NJJFG1BNJN"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Check user authentication state
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // If the user is logged in, display their email
+    document.getElementById("userEmail").textContent = user.email;
+    document.getElementById("profileIcon").src = user.photoURL || 'https://www.w3schools.com/w3images/avatar2.png';
+  } else {
+    // If the user is not logged in, redirect to login page
+    window.location.href = 'index.html';
+  }
+});
+
+// Logout function
+window.logoutUser = function() {
+  signOut(auth).then(() => {
+    // Redirect to login page after successful logout
+    window.location.href = 'index.html';
+  }).catch((error) => {
+    console.error("Error logging out: ", error);
+  });
+};
+
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      width: 80%;
+      max-width: 900px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .profile-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .profile-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+    .profile-card .profile-info {
+      flex-grow: 1;
+    }
+    .profile-card button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .profile-card button:hover {
+      background-color: #0056b3;
+    }
+    .back-button {
+      padding: 10px 20px;
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .back-button:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+    <h2>Admin Dashboard</h2>
+    <div class="profile-card">
+      <!-- Profile Icon -->
+      <img id="profileIcon" src="https://www.w3schools.com/w3images/avatar2.png" alt="User Profile" />
+      <div class="profile-info">
+      <!-- Display user's email -->
+      <p id="userEmail">Loading...</p>
+      </div>
+      <!-- Logout Button -->
+      <button onclick="logoutUser()">Logout</button>
+    </div>
+  </div>
+</body>
+</html>
