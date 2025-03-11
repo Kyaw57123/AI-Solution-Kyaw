@@ -9,6 +9,7 @@ body {
     color: #284c72 !important; /* Change this to match your design */
 }
 
+
 .brand-logo {
    
     padding: 3px;
@@ -211,9 +212,9 @@ body {
 }
 .blog {
     border: 1px solid aliceblue;
-    width: 25%;
     padding: 15px; 
     border-radius: 10px; 
+    height: 100%;
 }
 .blog img {
     width: 100%;

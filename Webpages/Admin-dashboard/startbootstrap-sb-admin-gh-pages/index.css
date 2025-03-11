@@ -1,0 +1,46 @@
+/* Flex and grid system for responsiveness */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.col-lg-8{
+    width: 65%;
+}
+.card-body {
+    padding: 20px;
+}
+
+/* For better readability, add padding around the cards */
+.card-body h5 {
+    font-size: 1.25rem; /* Card title size */
+    font-weight: bold;
+}
+
+.card-body p {
+    font-size: 1.1rem; /* Text size for the content */
+    color: #333;
+}
+
+/* Make sure that the chart canvas is responsive */
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* To keep the layout responsive */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Margin and padding adjustments for mobile screens */
+@media (max-width: 767px) {
+    
+    .col-lg-8{
+        width: 100%;
+    }
+    .card-body {
+        padding: 15px; /* Adjust padding on smaller screens */
+    }
+}

@@ -16,21 +16,22 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
-        <div class="container-fluid">
+        <div class="container">
 
             <div class="navbar-brand d-flex align-items-center">
                 <img src="AI logo.png" alt="Solution" class="brand-logo">
                 <span class="ms-2 text-white">Solution</span>
             </div>
-
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav nav-justified ">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarSupportedContent" class=" collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="d-flex w-100 navbar-nav nav-justified " >
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="software.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="industrial.html">Industrial</a></li>
                     <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    
                 </ul>
             </div>
 
@@ -40,7 +41,6 @@
                 </button>
                 <form class="d-flex search-form" id="searchForm" style="display: none;">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        
                 </form>
             </div>  
         </div>
@@ -50,28 +50,32 @@
     <!-- hero section -->
     <header class="bg-primary text-white text-center py-5">
         <section class="welcome-section py-5">
-            <div class="container d-flex justify-content-between align-items-center ">
-                <div class="text-center welcome-box p-4 floating">
-                    <h1 class="fw-bold">About Us</h1>
-                    <p class="ital mt-3">Founded in 1997, AI-Solution has grown from a small team of 
-                        innovators to a global network of AI experts. With diverse talent and offices worldwide, we specialize in AI-powered virtual 
-                        assistants and prototyping solutions, driving innovation and automation for businesses everywhere.</p>
-                </div>
-                <!-- New Divs for Employee & Office Count -->
-                <div class="d-flex gap-4 mt-4 justify-content-end info-container">
-                    <div class="info-box p-3 text-center">
-                        <p class="ital">Employees</p>
-                        <h2 class="fw-bold">500+</h2>
-                        
+            <div class="container">
+                <div class="row d-flex flex-column flex-lg-row align-items-center text-center text-lg-start">
+                    <div class="col-lg-6 welcome-box p-4 floating">
+                        <h1 class="fw-bold">About Us</h1>
+                        <p class="ital mt-3">
+                            Founded in 1997, AI-Solution has grown from a small team of innovators to a global network of AI experts. 
+                            With diverse talent and offices worldwide, we specialize in AI-powered virtual assistants and prototyping solutions, 
+                            driving innovation and automation for businesses everywhere.
+                        </p>
                     </div>
-                    <div class="info-box p-3 text-center">
-                        <p class="ital">Global Offices</p>
-                        <h2 class="fw-bold">10+</h2>
-                        
+        
+                    <!-- New Divs for Employee & Office Count -->
+                    <div class="col-lg-6 d-flex flex-column flex-md-row justify-content-center justify-content-lg-end gap-4 mt-4 info-container">
+                        <div class="info-box p-3 text-center">
+                            <p class="ital">Employees</p>
+                            <h2 class="fw-bold">500+</h2>
+                        </div>
+                        <div class="info-box p-3 text-center">
+                            <p class="ital">Global Offices</p>
+                            <h2 class="fw-bold">10+</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        
     </header>
 
     
@@ -79,31 +83,34 @@
     <section id="employees" class="container py-5">
         <h2 class="hfh text-center">Our Employees</h2>
         <p class="hfh text-center">We have a team of skilled professional employees.</p>
+        
         <div class="row text-center">
-            <div class="col-md-4">
-                <div class="card p-3 employee-card">
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <div class="card p-3 employee-card h-100">
                     <div class="employee-image">
-                        <img src="jd.webp" alt="John Doe">
+                        <img src="jd.webp" alt="John Doe" class="img-fluid rounded-circle">
                     </div>
                     <h4>John Doe</h4>
                     <p><em>Software Engineer</em></p>
                     <p class="employee-story">John is a dedicated software engineer with over 8 years of experience in AI-driven applications. His expertise in backend development and cloud computing has helped streamline complex systems for our clients.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card p-3 employee-card">
+            
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <div class="card p-3 employee-card h-100">
                     <div class="employee-image">
-                        <img src="js.jpg" alt="Jane Smith">
+                        <img src="js.jpg" alt="Jane Smith" class="img-fluid rounded-circle">
                     </div>
                     <h4>Jane Smith</h4>
                     <p><em>AI Researcher</em></p>
                     <p class="employee-story">Jane is a passionate AI researcher who specializes in deep learning and neural networks. She has contributed to several groundbreaking projects in natural language processing and AI ethics.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card p-3 employee-card">
+            
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <div class="card p-3 employee-card h-100">
                     <div class="employee-image">
-                        <img src="rb.jpg" alt="Robert Brown">
+                        <img src="rb.jpg" alt="Robert Brown" class="img-fluid rounded-circle">
                     </div>
                     <h4>Robert Brown</h4>
                     <p><em>UI/UX Designer</em></p>
@@ -112,6 +119,7 @@
             </div>
         </div>
     </section>
+    
     
     
     <!-- our program Section -->
