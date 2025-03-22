@@ -1,5 +1,5 @@
 body {
-    background: url('main back.avif') no-repeat center center/cover;
+    background: url('main\ back\ 2.webp') no-repeat center center/cover;
 }
 
 
@@ -66,12 +66,18 @@ body {
     z-index: 2;
     max-width: 60%;
 }
+.tt{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #bbb;
+    padding-bottom: 5px !important;
+}
 
 
 
 /*for the previous projects*/
 .blog-section {
-    background: #162c26b2;
+    background: #0b1228c4;;
     padding: 60px 0;
 }
 
@@ -117,7 +123,7 @@ body {
 
 /*this is for adverticing */
 .welcome-section {
-    background: #162c26b2; 
+    background: #0b1228c4; 
     color: #fff;
     display: flex;
     align-items: center;
@@ -209,7 +215,7 @@ body {
 }
 
 .popup-content {
-    background: white;
+    background: rgba(255, 255, 255, 0.818);
     padding: 30px;
     border-radius: 10px;
     text-align: center;
@@ -264,6 +270,10 @@ body {
 
 .popup-close i {
     font-size: 20px;
+}
+
+#gallery{
+    background: #0b1228c4; 
 }
 
 

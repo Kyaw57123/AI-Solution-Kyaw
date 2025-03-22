@@ -17,5 +17,5 @@ git status
 
 // get data from git
 Pull Projects ;
-git pull origin main
 git stash pop  # Restore your local changes after pulling
+git pull origin main

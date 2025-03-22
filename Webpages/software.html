@@ -80,19 +80,52 @@
             <h2 class="section-title text-center fade-in-title">Our Software Services</h2>
             <div class="row  g-5 mt-4 ">
                     
-                <!-- Service 1 (Image on Right) -->
-                <div class="col-12 d-flex d-flex justify-content-center">
+                <!-- Service Card Section -->
+                <div class="col-12 d-flex justify-content-center">
                     <div class="service-card d-flex flex-column flex-lg-row-reverse align-items-center">
                         <img src="abc.webp" class="service-img" alt="Applied Business">
                         <div class="service-content">
                             <h4 class="service-title">Applied Business</h4>
-                            <p class="service-text"> Leverage AI-powered business solutions to optimize decision-making,
-                                streamline operations, and enhance customer experiences. Our expertise ensures that
-                                 businesses can harness data-driven insights to stay ahead in the competitive market.</p>
-                            <a href="#contact" class="btn btn-primary">Contact Us</a>
+                            <p class="service-text">
+                                Leverage AI-powered business solutions to optimize decision-making,
+                                streamline operations, and enhance customer experiences.
+                            </p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appliedBusinessModal">
+                                Read More
+                            </button>
                         </div>
                     </div>
                 </div>
+                <!-- Modal -->
+                <div class="modal fade" id="appliedBusinessModal" tabindex="-1" aria-labelledby="appliedBusinessModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content rounded-4 shadow-lg">
+                            <div class="modal-header bg-primary text-white rounded-top-4">
+                                <h5 class="modal-title fw-bold" id="appliedBusinessModalLabel">Applied Business</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-4">
+                                <!-- Modal Image -->
+                                <img src="modal 1.jpg" alt="AI in Business" class="img-fluid rounded mb-4 shadow-sm">
+
+                                <!-- Modal Text -->
+                                <p class="fs-5 text-muted">
+                                    In today’s rapidly evolving digital landscape, businesses need to adopt smarter, faster, and more adaptive strategies to stay competitive. Our Applied Business services leverage cutting-edge artificial intelligence to revolutionize the way organizations operate. We work closely with companies to understand their goals and develop tailored solutions that integrate AI-powered decision-making, automation, and predictive analytics into daily workflows.
+                                </p>
+                            
+                                <p class="text-muted">
+                                    Our approach doesn’t just stop at implementation—we offer continuous support, system optimization, and integration with your existing tools and platforms. With a strong focus on data security and business scalability, we help organizations transition into the future with confidence. Applied Business is more than just technology—it’s the key to transforming potential into performance.
+                                </p>
+                            </div>
+                            <div class="modal-footer bg-light rounded-bottom-4">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             
                 <!-- Service 2 (Image on Left - No Change) -->
                 <div class="col-12 d-flex justify-content-center justify-content-md-end">
@@ -100,41 +133,144 @@
                         <img src="cse.jpg" class="service-img" alt="Computer System">
                         <div class="service-content">
                             <h4 class="service-title">Computer System</h4>
-                            <p class="service-text">Build reliable and scalable computer systems tailored to your needs.
-                                 From hardware configurations to advanced software integrations, we provide cutting-edge
-                                  solutions that enhance system performance and security.</p>
-                            <a href="#contact" class="btn btn-primary">Contact Us</a>
+                            <p class="service-text">
+                                Build reliable and scalable computer systems tailored to your needs.
+                                From hardware configurations to advanced software integrations, we provide cutting-edge
+                                solutions that enhance system performance and security.
+                            </p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#computerSystemModal">
+                                Read More
+                            </button>
                         </div>
                     </div>
                 </div>
+                <!-- Modal for Computer System -->
+                <div class="modal fade" id="computerSystemModal" tabindex="-1" aria-labelledby="computerSystemModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content rounded-4 shadow-lg">
+                            <div class="modal-header bg-primary text-white rounded-top-4">
+                                <h5 class="modal-title fw-bold" id="computerSystemModalLabel">Computer System Solutions</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-4">
+                                <!-- Modal Image -->
+                                <img src="modal 2.jpg" alt="Computer System Overview" class="img-fluid rounded mb-4 shadow-sm">
+
+                                <!-- Paragraph Content -->
+                                <p class="fs-5 text-muted">
+                                    Our Computer System solutions are crafted to meet the evolving technological demands of modern businesses. We specialize in designing and building reliable, high-performance computer systems that are tailored to your unique operational requirements. Whether you need enterprise-grade hardware setups or seamless software integration, we ensure each system is optimized for speed, scalability, and long-term stability.
+                                </p>
+                                
+                                <p class="text-muted">
+                                    By partnering with us, you gain access to a team of experts committed to enhancing your digital environment through intelligent architecture, future-ready components, and continuous innovation. Whether you're building your infrastructure from the ground up or modernizing existing systems, our solutions empower you to operate more efficiently and confidently in a tech-driven world.
+                                </p>
+                            </div>
+                            <div class="modal-footer bg-light rounded-bottom-4">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             
                 <!-- Service 3 (Image on Right) -->
                 <div class="col-12 d-flex justify-content-center">
                     <div class="service-card d-flex flex-column flex-lg-row-reverse align-items-center">
-                        <img src="nse.jpg" class="service-img" alt="AI Automation">
+                        <img src="nse.jpg" class="service-img" alt="Network System">
                         <div class="service-content">
                             <h4 class="service-title">Network System</h4>
-                            <p class="service-text">Ensure seamless and secure connectivity with our advanced network solutions.
-                                 We specialize in designing, deploying, and managing networks that optimize data flow, security,
-                                  and efficiency for businesses of all sizes.</p>
-                            <a href="#contact" class="btn btn-primary">Contact Us</a>
+                            <p class="service-text">
+                                Ensure seamless and secure connectivity with our advanced network solutions.
+                                We specialize in designing, deploying, and managing networks that optimize data flow, security,
+                                and efficiency for businesses of all sizes.
+                            </p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#networkSystemModal">
+                                Read More
+                            </button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Modal for Network System -->
+                <div class="modal fade" id="networkSystemModal" tabindex="-1" aria-labelledby="networkSystemModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content rounded-4 shadow-lg">
+                        <div class="modal-header bg-primary text-white rounded-top-4">
+                        <h5 class="modal-title fw-bold" id="networkSystemModalLabel">Network System Solutions</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-4">
+                        <!-- Modal Image -->
+                        <img src="modal 3.jpg" alt="Computer System Overview" class="img-fluid rounded mb-4 shadow-sm">
+                
+                        <!-- Modal Content -->
+                        <p class="fs-5 text-muted">
+                            In a world where connectivity drives everything, having a reliable, secure, and efficient network system is crucial for business success. Our Network System solutions are designed to empower organizations with seamless communication, fast data transfer, and robust infrastructure management. We go beyond just wiring and routers—we create scalable systems that support your operations today and grow with your business tomorrow.
+                        </p>
+                
+                        <p class="text-muted">
+                            Our services also include VPN configuration, firewalls, network segmentation, cloud connectivity, and real-time monitoring tools—ensuring you're not just connected, but fully in control of your digital environment. With our network systems in place, your organization will experience reduced latency, enhanced collaboration, and stronger cybersecurity posture.
+                        </p>
+                        </div>
+                        <div class="modal-footer bg-light rounded-bottom-4">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+  
+
+
             
                 <!-- Service 4 (Image on Left - No Change) -->
-                <div class="col-12 d-flex justify-content-center d-flex justify-content-md-end">
+                <div class="col-12 d-flex justify-content-center justify-content-md-end">
                     <div class="service-card d-flex flex-column flex-lg-row-reverse align-items-center">
-                        <img src="AIservic.jpg" class="service-img" alt="Data Analytics">
+                        <img src="AIservic.jpg" class="service-img" alt="AI Service">
                         <div class="service-content">
                             <h4 class="service-title">AI Service</h4>
-                            <p class="service-text">Empower your business with intelligent AI-driven solutions. From machine 
+                            <p class="service-text">
+                                Empower your business with intelligent AI-driven solutions. From machine 
                                 learning algorithms to natural language processing, our AI services help automate processes,
-                                 improve decision-making, and enhance user experiences.</p>
-                            <a href="#contact" class="btn btn-primary">Contact Us</a>
+                                improve decision-making, and enhance user experiences.
+                            </p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aiServiceModal">
+                                Read More
+                            </button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Modal for AI Service -->
+                <div class="modal fade" id="aiServiceModal" tabindex="-1" aria-labelledby="aiServiceModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content rounded-4 shadow-lg">
+                            <div class="modal-header bg-primary text-white rounded-top-4">
+                                <h5 class="modal-title fw-bold" id="aiServiceModalLabel">AI Services for Smarter Business</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-4">
+                                <!-- Modal Image -->
+                                <img src="modal 4.jpg" alt="AI in Business" class="img-fluid rounded mb-4 shadow-sm">
+
+                                <!-- Modal Text -->
+                                <p class="fs-5 text-muted">
+                                    Artificial Intelligence is redefining the way businesses operate, and our AI Services are at the forefront of this transformation. We offer a comprehensive range of AI-powered solutions designed to help businesses automate tasks, uncover insights, and make smarter decisions faster. From predictive modeling to deep learning and recommendation systems, our offerings are tailored to meet the unique challenges of each client.
+                                </p>
+                                
+                                <p class="text-muted">
+                                    Every implementation is backed by ethical AI practices, secure infrastructure, and ongoing support to ensure smooth integration with your existing systems. With our AI services, you're not just adopting new technology—you're gaining a competitive edge powered by intelligent innovation and real-time learning.
+                                </p>
+                            </div>
+                            <div class="modal-footer bg-light rounded-bottom-4">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>
@@ -164,6 +300,71 @@
             
         </div>
     </section>
+
+     <!-- photo gallery section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+          <h2 class="text-center mb-4" style="color: #138496;">Photo Gallery</h2>
+          <div class="row g-4">
+            <!-- Image 1 -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card border-0 shadow-sm">
+                <img src="service gall 1.webp" class="card-img-top" alt="Gallery Image 1">
+              </div>
+            </div>
+      
+            <!-- Image 2 -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card border-0 shadow-sm">
+                <img src="service gall 2.jpg" class="card-img-top" alt="Gallery Image 2">
+              </div>
+            </div>
+      
+            <!-- Image 3 -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card border-0 shadow-sm">
+                <img src="service gall 3.webp" class="card-img-top" alt="Gallery Image 3">
+              </div>
+            </div>
+      
+            <!-- Image 4 -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card border-0 shadow-sm">
+                <img src="service gall 4.jpg" class="card-img-top" alt="Gallery Image 4">
+              </div>
+            </div>
+            <!-- Add more images as needed -->
+             <!-- Image 1 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="card border-0 shadow-sm">
+                  <img src="service gall 5.jpg" class="card-img-top" alt="Gallery Image 1">
+                </div>
+              </div>
+        
+              <!-- Image 2 -->
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card border-0 shadow-sm">
+                  <img src="service gall 6.jpg" class="card-img-top" alt="Gallery Image 2">
+                </div>
+              </div>
+        
+              <!-- Image 3 -->
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card border-0 shadow-sm">
+                  <img src="service gall 7.jpeg" class="card-img-top" alt="Gallery Image 3">
+                </div>
+              </div>
+        
+              <!-- Image 4 -->
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card border-0 shadow-sm">
+                  <img src="service gall 8.webp" class="card-img-top" alt="Gallery Image 4">
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+      
 
     
     <!-- Fixed Contact Us Button -->
@@ -200,8 +401,8 @@
     
                 <!-- Right Side: Contact Info & Social Links -->
                 <div class="col-md-6 text-md-end text-center">
-                    <p><strong>Email:</strong> support@ai-solution.com</p>
-                    <p><strong>Phone:</strong> +123 456 7890</p>
+                    <p><strong>Email:</strong> kyawtungusto@gmail.com</p>
+                    <p><strong>Phone:</strong> +95 973876251</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>

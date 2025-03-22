@@ -1,5 +1,5 @@
 body {
-    background: url('main back.avif') no-repeat center center/cover;
+    background: url('main\ back\ 2.webp') no-repeat center center/cover;
 }
 
 
@@ -45,7 +45,7 @@ body {
 /*this is for hero */
 .hero {
     position: relative;
-    background: linear-gradient(to right, #1f40379c, #4d504eaa);
+    background: #0b1228c4;
     color: white;
     text-align: center;
     padding: 5rem 0;
@@ -104,9 +104,11 @@ body {
 
 
 
+
+
 /* Photo Gallery Section */
 .photo-gallery {
-    background: #162c26b2; 
+    background: #0b1228c4; 
     padding: 50px 0;
 }
 
@@ -207,7 +209,7 @@ body {
 
 
 .blogs {
-    background: #162c26b2;
+    background: #0b1228c4;
     min-height: 400px;
 }
 .blog {
@@ -233,7 +235,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #435253;
+    background: rgba(72, 72, 72, 0.823);
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -361,5 +363,7 @@ body {
 }
 
 
-
+.section-divider{
+    border: #bbb 1px solid;
+}
 

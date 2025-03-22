@@ -1,5 +1,5 @@
 body {
-    background: url('main back.avif') no-repeat center center/cover;
+    background: url('main\ back\ 2.webp') no-repeat center center/cover;
 }
 
 /* Navigation bar*/
@@ -103,7 +103,7 @@ body {
 
 /* this is for service */
 .photo-gallery {
-    background: #162c26b2; 
+    background: #0b1228c4; 
     text-align: center;
     padding: 60px 0;
 }
@@ -181,13 +181,16 @@ body {
 
 /* Contact Button */
 .btn-primary {
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-size: 1rem;
+    background-color: #7bacb4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #138496;
 }
 
 /* Responsive Design */
@@ -201,6 +204,23 @@ body {
         width: 100%;
         max-width: 350px;
     }
+}
+/*this is for the modal*/
+.modal-content {
+    border: none;
+    overflow: hidden;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.list-group-item {
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+    padding-left: 0;
 }
 
 
@@ -365,6 +385,38 @@ body {
 }
 
 
+/* Apply same background to the gallery section */
+#gallery {
+    
+    background: #0b1228c4; 
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Make all gallery images the same size and responsive */
+  #gallery .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Add subtle hover zoom effect */
+  #gallery .card:hover .card-img-top {
+    transform: scale(1.05);
+  }
+  
+  /* Optional: Add soft shadow and rounded cards */
+  #gallery .card {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8); /* subtle transparent bg */
+  }
+  
+
+
+
+
 /*this is for the fotter*/
 .footer-section {
     background: black;
@@ -400,6 +452,11 @@ body {
     padding-top: 5px;
     margin-top: 10px;
 }
+
+
+
+
+
 
 
 
